@@ -1,2 +1,3 @@
 #ignore datasets private data
 *.csv
+*.venv
