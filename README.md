@@ -14,3 +14,5 @@ Welcome to my repository! Here, we will explore and implement techniques related
 2. *Data Mining:*
    - Data mining involves extracting useful information from large datasets using various methods such as clustering, classification, and association rule mining.
    - We will apply data mining techniques to our matched datasets to discover patterns, trends, and insights that could drive decision-making
+
+   
