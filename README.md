@@ -20,7 +20,7 @@ Welcome to my repository! Here, we will explore and implement techniques related
    from psmpy.functions import *
    sns.set(rc={'figure.figsize':(10,8), 'font.size': 1.3})
    ```
-   ### Librarie PsmPy 0.3.13 *link https://pypi.org/project/psmpy/*
+   #### Librarie PsmPy 0.3.13 *link https://pypi.org/project/psmpy/*
    #### *Read csv*
    ```
    warnings.filterwarnings("ignore")
@@ -112,15 +112,21 @@ indx - required parameter that references a unique ID number for each case in th
     psm.plot_match(Title='Side by side matched controls', Ylabel='Number of patients', Xlabel='Propensity logit', names = ['Migracion', 'No Migracion'], colors = ['blue', 'red'], save=True)
    ```
    #### Result
+   ```
    dict_escolar, dict_edociv, dict_lgbt, dict_ocup, dict_pais, dict_nivsoc  = dict_data(df_catescolar, df_catedociv, df_catlgbt, df_catocup, df_pais, df_nivsoc)
    df = mod_df(df_dataset)
    listexclude = gen_list(df_dataset)
    df_dataset = moddatagen(df_dataset)
    df = mod_data(df_dataset, dict_escolar, dict_edociv, dict_lgbt, dict_ocup, dict_pais, dict_nivsoc)
    psm = get_psm(df, listexclude)
-graf_psm(psm)
+   graf_psm(psm)
    ```
 
+#### *psm.plot_match(Title='Side by side matched controls', Ylabel='Number of patients', Xlabel='Propensity logit', names = ['Migracion', 'No Migracion'], colors = ['blue', 'red'], save=True)* 
+![alt text](propensity_match.png)
+
+#### *psm.matched_ids*
+![alt text](image.png)
 
 2. *Data Mining:*
    - Data mining involves extracting useful information from large datasets using various methods such as clustering, classification, and association rule mining.
