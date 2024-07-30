@@ -132,3 +132,58 @@ indx - required parameter that references a unique ID number for each case in th
    - Data mining involves extracting useful information from large datasets using various methods such as clustering, classification, and association rule mining.
    - We will apply data mining techniques to our matched datasets to discover patterns, trends, and insights that could drive decision-making
 
+```
+def gen_newdf (df_matched_ids, df_dataset):
+    """
+    Generate a new DataFrame with the matched ids
+    param: df_matched_ids, df_DataFrame
+    return: df_DataFrame
+    """
+    df_matched = df_dataset[df_dataset['FolioId'].isin(df_matched_ids['FolioId'])]
+    df_matched = pd.concat([df_matched, df_dataset[df_dataset['FolioId'].isin(df_matched_ids['largerclass_0group'])]], axis= False)
+    df_matched = pd.concat([df_matched, df_dataset[df_dataset['FolioId'].isin(df_matched_ids['largerclass_1group'])]], axis= False)
+    return df_matched
+
+def applyregex(row, regex):
+    """
+    Apply a regex to a row
+    param: row, regex
+    return: boolean
+    """
+    return any(re.search(regex,str(value))for value in row if value is not None)
+
+
+def drop_col (df):
+    for col in df.columns:
+        if col.startswith('Diag') or col.startswith('Trast'):
+            df.drop(columns=[col], axis=1, inplace=True) # Drop columns
+    return df
+
+def minertext (df, df_antfam, df_comorb, df_diag):
+    
+    for idx, row in df_antfam.iterrows():
+        regex = row['regex']
+        new_colum = row['varname']
+        df[new_colum] = df.apply(lambda row: applyregex(row,regex), axis=1).astype(int)
+
+    for idx, row in df_comorb.iterrows():
+        regex = row['regex']
+        new_colum = row['varname']
+        df[new_colum] = df.apply(lambda row: applyregex(row,regex), axis=1).astype(int)
+
+    for idx, row in df_diag.iterrows():
+        regex = row['regex']
+        new_colum = row['varname']
+        df[new_colum] = df.apply(lambda row: applyregex(row,regex), axis=1).astype(int)    
+        
+        #df = drop_col (df)
+    return df
+
+new_df = gen_newdf(psm.matched_ids, df_dataset)
+new_df.to_csv('results/MatchedData.csv', index=False)
+intent = minertext(new_df, df_antfam, df_comorb, df_diag)
+intent.to_csv('results/PsmRegex.csv')
+df_score = psm.df_matched
+df_score.to_csv('results/score-logit.csv')
+
+```
