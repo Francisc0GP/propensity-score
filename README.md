@@ -41,6 +41,7 @@ El sistema de Centros de Integracion Juvenil CIJ3.0 contiene una base de datos q
 Las variables son las siguientes: sexo, edad, estado civil, escolaridad, ocupacion, comunidad indigena, discapacidad perceptual.
 
 Las covariables muestran que el tamaño de efecto disminuye, lo cual nos indica que se trata de un buen emparejamiento
+
 ![alt text](effect.png)
 ![alt text](effect_size.png)
 ```
