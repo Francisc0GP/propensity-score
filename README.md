@@ -185,6 +185,7 @@ graf_psm(psm)
 <Aqui Se ejecutan y se muestran los resultados con las graficas>
 ```
 <Se crea un nuevo df con los folios pareados>
+
 ```
 def gen_newdf (df_matched_ids, df_dataset):
     """
@@ -196,6 +197,8 @@ def gen_newdf (df_matched_ids, df_dataset):
     df_matched = pd.concat([df_matched, df_dataset[df_dataset['FolioId'].isin(df_matched_ids['largerclass_0group'])]], axis= False)
     df_matched = pd.concat([df_matched, df_dataset[df_dataset['FolioId'].isin(df_matched_ids['largerclass_1group'])]], axis= False)
     return df_matched
+```
+```
 
 def applyregex(row, regex):
     """
@@ -204,7 +207,8 @@ def applyregex(row, regex):
     return: boolean
     """
     return any(re.search(regex,str(value))for value in row if value is not None)
-
+```
+```
 def drop_col (df):
     """
     Drop columns in a DataFrame
@@ -215,14 +219,14 @@ def drop_col (df):
         if col.startswith('Diag') or col.startswith('Trast'):
             df.drop(columns=[col], axis=1, inplace=True) # Drop columns
     return df
-
+```
+```
 def minertext (df, df_antfam, df_comorb, df_diag):
     """
     Apply regex to a DataFrame
     param: df_DataFrame, df_DataFrames
     return: df_DataFrame
     """
-    
     #for idx, row in df_antfam.iterrows():
     #    regex = row['regex']
     #    new_colum = row['varname']
@@ -240,12 +244,13 @@ def minertext (df, df_antfam, df_comorb, df_diag):
         
     df = drop_col (df)
     return df
-
+```
+```
 new_df = gen_newdf(psm.matched_ids, df_dataset)
 new_df.to_csv('results/MatchedData.csv', index=False)
 intent = minertext(new_df, df_antfam, df_comorb, df_diag)
 intent.to_csv('results/PsmRegex.csv')
 df_score = psm.df_matched
 df_score.to_csv('results/score-logit.csv')
-
+```
 ```
