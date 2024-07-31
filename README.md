@@ -25,6 +25,7 @@ A. Kline and Y. Luo, PsmPy: A Package for Retrospective Cohort Matching in Pytho
 
 ### *Proceso de obtencion de datos*
 El sistema de Centros de Integracion Juvenil CIJ3.0 contiene una base de datos que hace referencia a la entrevista inicial, en esta entrevista inicial el sujeto contesta una serie de preguntas que nos permite conocer sus datos sociodemograficos y el patron de consumo, posterior a este paso el sujeto es citado de vuelta para un cuestionario de historia clinica donde se le realizan preguntas mas especificas sobre datos medicos, es normal que debamos esperar que algunos pacientes no lleguen a este paso por lo que consideramos esta parte un filtro de exclusion en nuestro modelo.
+![alt text](<propensity migracion.png>)
 
 ### *Objetivos del proyecto*
 1. *Propensity Score Matching (PSM):*
