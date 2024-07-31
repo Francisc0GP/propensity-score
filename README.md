@@ -40,7 +40,7 @@ Las variables son las siguientes: sexo, edad, estado civil, escolaridad, ocupaci
 
 Las covariables muestran que el tamaño de efecto disminuye, lo cual nos indica que se trata de un buen emparejamiento
 
-![alt text](Effect_size_tab.png)
+![alt text](EffectsizeT.png)
 ![alt text](effect_size.png)
 
 # *Codigo*
