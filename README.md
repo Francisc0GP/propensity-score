@@ -1,6 +1,4 @@
 # propensity-score
-### Welcome to the Propensity Score Matching and Data Mining Project
-
 #### *Participantes del estudio*
 En el sistema de Centros de Integracion Juvenil CIJ3.0 se encuentran 93586 registros con Entrevista Inicial e Historia Clinica.
 La muestra inicial para este proyecto 93586 que pertenecian a los registros en los años 2021-2023. Los sujetos que cumplian los siguientes criterios fueron excluidos del estudio al inicio del estudio:
